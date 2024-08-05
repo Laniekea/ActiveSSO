@@ -1,0 +1,53 @@
+# .NET Core
+*.dll
+*.exe
+*.pdb
+*.so
+*.dylib
+*.lib
+*.obj
+*.exe
+*.pch
+*.pyc
+*.pyo
+*.log
+*.vs/
+
+# ASP.NET Core
+wwwroot/
+*.db
+*.suo
+*.user
+*.userosscache
+*.suo
+*.vscode/
+*.config
+
+# Rider
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+
+# Npm
+node_modules/
+
+# NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+packages/
+
+# DotCover
+*.dotCover
+
+# User-specific files
+*.swp
+*.swo
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
