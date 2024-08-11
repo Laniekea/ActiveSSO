@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ActiveSSO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4058fb5fe057295fc28918e4a4654ee2cba32312")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+ec2a6dfac96851c9ad950246b78ed414a261ecde")]
 [assembly: System.Reflection.AssemblyProductAttribute("ActiveSSO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ActiveSSO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
