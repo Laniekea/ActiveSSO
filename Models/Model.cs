@@ -1,5 +1,4 @@
 using Microsoft.EntityFrameworkCore;
-using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -7,9 +6,21 @@ public class ApplicationDbContext : DbContext
 {
     public DbSet<User> Users { get; set; }
     public DbSet<Session> Sessions { get; set; }
+     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        : base(options)
+    {
+    }
+    // Optionally, override OnConfiguring if not using dependency injection
+    protected override void OnConfiguring(DbContextOptionsBuilder options)
+    {
+        if (!options.IsConfigured)
+        {
+            options.UseSqlite("Data Source=localdb.db");
+        }
+    }
 }
 
-[Table("Users")]ß
+[Table("Users")]
 public class User
 {
     [Key]
