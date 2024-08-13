@@ -1,53 +1,68 @@
-# .NET Core
-*.dll
-*.exe
-*.pdb
-*.so
-*.dylib
-*.lib
-*.obj
-*.exe
-*.pch
-*.pyc
-*.pyo
-*.log
-*.vs/
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
 
-# ASP.NET Core
-wwwroot/
-*.db
+# Visual Studio
+.vs/
+*.vcxproj
 *.suo
 *.user
 *.userosscache
 *.suo
-*.vscode/
-*.config
+*.ncb
+*.sdf
+*.opensdf
+*.ipch
+*.aps
+*.pch
+*.pdb
+*.obj
+*.log
 
-# Rider
-.idea/
-*.sublime-workspace
-*.sublime-project
-
-# OS-specific files
-.DS_Store
-Thumbs.db
-ehthumbs.db
-
-# Npm
-node_modules/
+# Dotnet
+*.dll
+*.exe
+*.app
+*.dmg
+*.nupkg
+*.snupkg
+*.dotnet/
+*.csproj.user
+*.csproj.nuget.g.props
+*.csproj.nuget.g.targets
+*.csproj.user
+*.vs/
 
 # NuGet
 *.nupkg
 *.snupkg
+*.nuget/
 *.nuspec
-packages/
 
-# DotCover
-*.dotCover
+# Rider
+.idea/
 
 # User-specific files
+*.suo
+*.user
+*.userosscache
+*.suo
+*.ncb
+*.opensdf
+*.sdf
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Other
+*.cache
+*.tmp
+*.temp
+*.bak
 *.swp
-*.swo
-*.sublime-workspace
-*.sublime-project
-*.code-workspace
