@@ -18,6 +18,17 @@ public class ApplicationDbContext : DbContext
             options.UseSqlite("Data Source=localdb.db");
         }
     }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        // Configure one-to-many relationship between user and session
+        modelBuilder.Entity<User>()
+            .HasMany(u => u.Sessions)
+            .WithOne(s => s.User)
+            .HasForeignKey(s => s.UserId)
+            .OnDelete(DeleteBehavior.Cascade); // Optional: configure delete behavior
+
+        // Other configurations if needed
+    }
 }
 
 [Table("Users")]
@@ -49,13 +60,11 @@ public class User
 
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
-    public User(string username, string email, string firstname, string lastname, string passwordhash)
+    // Navigation property for related sessions
+    public ICollection<Session> Sessions { get; set; } = new List<Session>();
+    // parameterless constructor
+    public User()
     {
-        Username = username;
-        Email = email;
-        FirstName = firstname;
-        LastName = lastname;
-        PasswordHash = passwordhash;
     }
 }
 
@@ -80,13 +89,11 @@ public class Session
 
     public DateTime? ExpiresAt { get; set; }
 
+    // Navigation property
     [ForeignKey(nameof(UserId))]
     public User User { get; set; }
-
-    public Session(string token, string status, User user)
+    // parameterless constructor
+    public Session()
     {
-        Token = token;
-        Status = status;
-        User = user;
     }
 }
