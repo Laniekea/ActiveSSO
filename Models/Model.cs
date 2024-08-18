@@ -6,7 +6,7 @@ public class ApplicationDbContext : DbContext
 {
     public DbSet<User> Users { get; set; }
     public DbSet<Session> Sessions { get; set; }
-     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
     {
     }
@@ -28,6 +28,33 @@ public class ApplicationDbContext : DbContext
             .OnDelete(DeleteBehavior.Cascade); // Optional: configure delete behavior
 
         // Other configurations if needed
+        base.OnModelCreating(modelBuilder);
+
+        // Seed Users
+        modelBuilder.Entity<User>().HasData(
+            new User
+            {
+                Id = 1,
+                Username = "admin",
+                Email = "admin@example.com",
+                PasswordHash = "hashed-password",
+                FirstName = "Admin",
+                LastName = "User",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            },
+            new User
+            {
+                Id = 2,
+                Username = "user",
+                Email = "user@example.com",
+                PasswordHash = "hashed-password",
+                FirstName = "Regular",
+                LastName = "User",
+                CreatedAt = DateTime.UtcNow,
+                UpdatedAt = DateTime.UtcNow
+            }
+        );
     }
 }
 
@@ -36,7 +63,7 @@ public class User
 {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public int UserId { get; set; }
+    public int Id { get; set; }
 
     [Required]
     [MaxLength(255)]
@@ -72,7 +99,7 @@ public class User
 public class Session
 {
     [Key]
-    public Guid SessionId { get; set; } = Guid.NewGuid();
+    public Guid Id { get; set; } = Guid.NewGuid();
 
     public int UserId { get; set; }
     public int ApplicationId { get; set; }
