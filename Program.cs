@@ -12,6 +12,9 @@ var app = builder.Build();
 
 app.MapGet("/", () => "Hello World!");
 
+app.MapGet("/users", async (ApplicationDbContext db) =>
+    await db.Users.ToListAsync());
+
 // Run migrations on startup
 using (var scope = app.Services.CreateScope())
 {
